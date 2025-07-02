@@ -1,8 +1,6 @@
 import { connect } from "../../../../dbConfig/dbConfig";
 import User from "../../../../models/userModel";
-import bcrypt from "bcryptjs";
 import { NextResponse,NextRequest } from "next/server";
-import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 dotenv.config();
 await connect();
