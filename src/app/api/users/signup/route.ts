@@ -46,16 +46,22 @@ export async function POST(req: NextRequest) {
     const savedUser = await newUser.save();
     console.log("✅ Saved user:", savedUser);
 
-    await sendEmail({email,emailType:"VERIFY",userId:savedUser._id})
+    await sendEmail({ email, emailType: "VERIFY", userId: savedUser._id });
 
     return NextResponse.json({
       message: "User created successfully",
       success: true,
       savedUser,
     });
-  } catch (error: any) {
-    console.error("❌ Error in signup:", error.message);
-    return NextResponse.json({ error: error.message }, { status: 500 });
+  } catch (error: unknown) {
+    let message = "Something went wrong";
+
+    if (error instanceof Error) {
+      message = error.message;
+    }
+
+    console.error("❌ Error in forgotPassword:", message);
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }
   

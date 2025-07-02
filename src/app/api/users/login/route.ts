@@ -56,8 +56,14 @@ export async function POST(req: NextRequest) {
             httpOnly: true,
         })
         return response;
-    } catch (error:any) {
-        console.error("❌ Error in login:", error.message);
-        return NextResponse.json({ error: error.message }, { status: 500 });
+    } catch (error: unknown) {
+        let message = "Something went wrong";
+    
+        if (error instanceof Error) {
+            message = error.message;
+        }
+    
+        console.error("❌ Error in forgotPassword:", message);
+        return NextResponse.json({ error: message }, { status: 500 });
     }
 }

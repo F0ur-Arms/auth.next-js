@@ -37,8 +37,14 @@ export async function POST(req: NextRequest) {
             message: "User verified successfully",
             success: true,
         });
-    } catch (error:any) {
-        console.error("❌ Error in verifyEmail:", error.message);
-        return NextResponse.json({ error: error.message }, { status: 500 });
+    } catch (error: unknown) {
+        let message = "Something went wrong";
+    
+        if (error instanceof Error) {
+            message = error.message;
+        }
+    
+        console.error("❌ Error in forgotPassword:", message);
+        return NextResponse.json({ error: message }, { status: 500 });
     }
 }
