@@ -11,7 +11,7 @@ export default function ChangePasswordPage() {
   const onChangePassword = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault(); // prevents full page reload
     try {
-      const response = await axios.post("/api/users/changePassword", {
+        await axios.post("/api/users/changePassword", {
         token,
         newPassword: password,
       });

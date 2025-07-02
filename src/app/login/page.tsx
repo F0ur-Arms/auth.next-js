@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { set } from "mongoose";
+import Image from "next/image";
 export default function Example() {
   const router = useRouter();
   const [user, setUser] = useState({
@@ -17,7 +17,7 @@ export default function Example() {
   const onLogin = async () => {
     try {
       setLoading(true);
-      const response = await axios.post("/api/users/login", user);
+      await axios.post("/api/users/login", user);
       console.log("Login successful");
       toast.success("Login successful");
       router.push("/profile");
@@ -39,7 +39,7 @@ export default function Example() {
     <>
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-          <img
+          <Image
             alt="Your Company"
             src="/images/087f6edbc2216b4916ad51cd22217260-removebg-preview.png"
             className="mx-auto h-52 w-auto"

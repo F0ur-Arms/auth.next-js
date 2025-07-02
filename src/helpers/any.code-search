@@ -1,0 +1,110 @@
+# Query: any
+# ContextLines: 1
+
+24 results - 17 files
+
+package-lock.json:
+  1969        "resolved": "https://registry.npmjs.org/ajv/-/ajv-6.12.6.tgz",
+  1970:       "integrity": "sha512-j3fVLgvTo527anyYyJOGTYJbG+vnnQYvE0m5mmkc1TK+nxAppkCLMIL0aZ4dblVCNoGShhm+kzE4ZUykBoMg4g==",
+  1971        "dev": true,
+
+  2615        "resolved": "https://registry.npmjs.org/define-properties/-/define-properties-1.2.1.tgz",
+  2616:       "integrity": "sha512-8QmQKqEASLd5nx0U1B1okLElbUuuttJ/AnYmRXbbbGDWh6uS208EjD4Xqq/I9wK7u0v6O08XhTWnt5XtEbR6Dg==",
+  2617        "dev": true,
+
+src\app\api\users\changePassword\route.ts:
+  42  
+  43:     } catch (error:unknown) {
+  44          console.error("❌ Error in forgotPassword:", error.message);
+
+src\app\api\users\forgotPassword\route.ts:
+  31  
+  32:     } catch (error: unknown) {
+  33          console.error("❌ Error in forgotPassword:", error.message);
+
+src\app\api\users\login\route.ts:
+  58          return response;
+  59:     } catch (error:unknown) {
+  60          console.error("❌ Error in login:", error.message);
+
+src\app\api\users\logout\route.ts:
+  15      return response;
+  16:   } catch (error: unknown) {
+  17      console.error("❌ Error in logout:", error.message);
+
+src\app\api\users\me\route.ts:
+  19      });
+  20:   } catch (error: unknown) {
+  21      console.error("❌ Error in /api/users/me:", error.message);
+
+src\app\api\users\signup\route.ts:
+  55      });
+  56:   } catch (error: unknown) {
+  57      console.error("❌ Error in signup:", error.message);
+
+src\app\api\users\verifyEmail\route.ts:
+  41          });
+  42:     } catch (error:unknown) {
+  43          console.error("❌ Error in verifyEmail:", error.message);
+
+src\app\changePass\page.tsx:
+  19        router.push("/login");
+  20:     } catch (error: unknown) {
+  21        console.log("Change password failed", error);
+
+src\app\login\page.tsx:
+  23        router.push("/profile");
+  24:     } catch (error: unknown) {
+  25        console.log("Login failed", error);
+
+  42            <img
+  43:             alt="Your Company"
+  44              src="/images/087f6edbc2216b4916ad51cd22217260-removebg-preview.png"
+
+src\app\profile\page.tsx:
+  20        router.push("/login");
+  21:     } catch (error: unknown) {
+  22        console.log("❌ Logout failed", error.response?.data || error.message);
+
+  35        toast.success("User details fetched");
+  36:     } catch (error: unknown) {
+  37        console.log(
+
+src\app\profile\[id]\page.tsx:
+  1: export default function UserProfile({params}:unknown) {
+  2    return (
+
+src\app\resetPassword\page.tsx:
+  13              toast.success("Email sent successfully");
+  14:         } catch (error: unknown) {
+  15              console.log("❌ Error in handleSubmit", error.response?.data || error.message);
+
+src\app\signup\page.tsx:
+  25          router.push("/login");
+  26:       } catch (error: unknown) {
+  27          console.log("Signup failed", error);
+
+  76                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-yellow-300 dark:border-gray-600 dark:placeholder-grey-600 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+  77:                       placeholder="name@company.com"
+  78                        required
+
+src\app\verifyemail\page.tsx:
+  23              setVerified(true);
+  24:         } catch (error: unknown) {
+  25              console.log("❌ Error in verifyEmail", error.response?.data || error.message);
+
+src\helpers\getDataFromToken.ts:
+   8          const token=request.cookies.get("token")?.value||'';
+   9:         const decodedToken=jwt.verify(token, process.env.TOKEN_SECRET!) ;
+  10          return decodedToken.id;
+  11:     } catch (error:unknown) {
+  12          throw new Error("❌ Error in getDataFromToken: " + error.message);
+
+src\helpers\mailer.ts:
+   6  
+   7: export const sendEmail = async ({ email, emailType, userId }: unknown) => {
+   8    try {
+
+  54      return mailResponse;
+  55:   } catch (error: unknown) {
+  56      console.error("❌ Error in sendEmail function:", error);

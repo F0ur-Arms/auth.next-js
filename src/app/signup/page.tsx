@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import  axios from "axios";
 import toast from "react-hot-toast";
-
+import Image from "next/image";
 export default function SignupPage() {
     const router= useRouter();
     const [user,setUser]=useState({
@@ -19,7 +19,7 @@ export default function SignupPage() {
       e.preventDefault(); // ✅ prevent default form submission
       try {
         setLoading(true);
-        const response = await axios.post("/api/users/signup", user);
+        await axios.post("/api/users/signup", user);
         console.log("Signup successful");
         toast.success("Signup successful");
         router.push("/login");
@@ -43,7 +43,7 @@ export default function SignupPage() {
       <>
         <section className="bg-gray-50 dark:bg-black">
           <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-            <img
+            <Image
               className="w-50 h-auto mx-auto mb-5"
               src="/images/087f6edbc2216b4916ad51cd22217260-removebg-preview.png"
               alt="logo"
