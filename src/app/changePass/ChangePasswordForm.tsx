@@ -15,7 +15,7 @@ export default function ChangePasswordForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const res = await axios.post("/api/users/changePassword", {
+      await axios.post("/api/users/changePassword", {
         token,
         password,
       });
